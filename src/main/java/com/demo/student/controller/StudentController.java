@@ -42,6 +42,7 @@ public class StudentController {
 
     @PutMapping("/update-student")
     public  ResponseEntity updateStudent(@Valid @RequestBody  Student student) throws JsonProcessingException {
+        validator.setCreateOrUpdate(true);
         List<String> error = ValidatorUtil.validate(student,validator);
         String result="";
         if(error != null){
@@ -50,9 +51,9 @@ public class StudentController {
                     "\"records\" : "+mapper.writeValueAsString(error)+"}";
             return ResponseEntity.ok(result);
         }
-        boolean created = studentService.updateStudent(student);
+        boolean created = studentService.updateMarks(student);
 
-        return ResponseEntity.ok(created==true?"student created successfully":"Failed to save student");
+        return ResponseEntity.ok(created==true?"student updated successfully":"Failed to update student");
     }
 
 

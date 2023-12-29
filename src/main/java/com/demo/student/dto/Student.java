@@ -4,9 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Past;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.*;
 
 @Setter
@@ -30,14 +28,21 @@ public class Student {
     private String lastName;
     @Column(nullable = false)
     @Past(message = "The date of birth must be in the past.")
+    @NotNull(message="Dob is required")
     private LocalDate dob;
     @Column(nullable = false)
     private String section;
     @Column(nullable = false)
+    @Min(value=0 ,message="minimum marks should be zero")
+    @Max(value=100,message="maximum mark should be 100")
     private int mark1;
     @Column(nullable = false)
+    @Min(value=0 ,message="minimum marks should be zero")
+    @Max(value=100,message="maximum mark should be 100")
     private int mark2;
     @Column(nullable = false)
+    @Min(value=0 ,message="minimum marks should be zero")
+    @Max(value=100,message="maximum mark should be 100")
     private int mark3;
     @Column(nullable = false)
     private String gender;

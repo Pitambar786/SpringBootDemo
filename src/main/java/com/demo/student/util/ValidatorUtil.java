@@ -13,7 +13,6 @@ import org.springframework.validation.*;
 
 public class ValidatorUtil {
 	// final static Logger logger = Logger.getLogger(ValidatorUtil.class);
-
 	public static <S extends org.springframework.validation.Validator, T> List<String> validate(T objectToValidate, S customValidator){
 		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
 		jakarta.validation.Validator validator = validatorFactory.getValidator();

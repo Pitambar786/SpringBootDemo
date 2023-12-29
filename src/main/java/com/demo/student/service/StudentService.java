@@ -7,5 +7,5 @@ import org.springframework.stereotype.Service;
 public interface StudentService {
     public boolean createStudent(Student student);
 
-    boolean updateStudent(Student student);
+    boolean updateMarks(Student student);
 }
